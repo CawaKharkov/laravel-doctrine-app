@@ -70,8 +70,8 @@ class AuthController extends Controller
         $user->setEmail($data['email']);
         $user->setPassword(bcrypt($data['password']));
 
-        EntityManager::persist($user);
-        EntityManager::flush();
+        $this->em->persist($user);
+        $this->em->flush();
 
         return $user;
     }
